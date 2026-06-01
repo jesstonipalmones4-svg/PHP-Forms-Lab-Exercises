@@ -1,0 +1,15 @@
+<?php
+// Input email from user
+echo "Enter your email address: ";
+$email = readline();
+
+// Trim whitespace to avoid accidental validation errors
+$email = trim($email);
+
+// Use filter_var with FILTER_VALIDATE_EMAIL
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Valid email\n";
+} else {
+    echo "Invalid email\n";
+}
+?>

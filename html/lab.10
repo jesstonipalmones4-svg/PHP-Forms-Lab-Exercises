@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post">
+ Name: <input type="text" name="name"><br><br>
+ Email: <input type="email" name="email"><br><br>
+ Gender:
+ <input type="radio" name="gender" value="Male"> Male
+ <input type="radio" name="gender" value="Female"> Female <br><br>
+ Course:
+ <select name="course">
+   <option value="">--Select Course--</option>
+   <option value="BSIT">BSIT</option>
+   <option value="BSCS">BSCS</option>
+ </select><br><br>
+ Message:<br>
+ <textarea name="message" rows="5" cols="40"></textarea><br><br>
+ <input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+    
+    $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
+
+    if (empty($_POST['name']) || empty($_POST['email']) || empty($gender) || empty($_POST['course']) || empty($_POST['message'])) {
+        echo "All fields are required!";
+    } else {
+        echo "<h3>Result:</h3>";
+        echo "Name: " . $_POST['name'] . "<br>";
+        echo "Email: " . $_POST['email'] . "<br>";
+        echo "Gender: " . $gender . "<br>";
+        echo "Course: " . $_POST['course'] . "<br>";
+        echo "Message: " . nl2br($_POST['message']);
+    }
+}
+?>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="process.php">
+ Name: <input type="text" name="name" required><br><br>
+ Email: <input type="email" name="email" required><br><br>
+
+ Gender:
+ <input type="radio" name="gender" value="Male" required> Male
+ <input type="radio" name="gender" value="Female" required> Female
+ <br><br>
+
+ Course:
+ <select name="course" required>
+   <option value="">--Select Course--</option>
+   <option value="BSIT">BSIT</option>
+   <option value="BSCS">BSCS</option>
+   <option value="BSIS">BSIS</option>
+   <option value="BSECE">BSECE</option>
+ </select>
+ <br><br>
+
+ Message:<br>
+ * <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+
+ <input type="submit" name="submit" value="Submit">
+ <input type="reset" value="Reset">
+</form>
+
+</body>
+</html>

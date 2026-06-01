@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 7: Radio Buttons</title>
+</head>
+<body>
+
+    <h3>Select Gender:</h3>
+    <!-- The form submits to itself using the POST method -->
+    <form method="POST" action="">
+        <label>
+            <input type="radio" name="gender" value="Male"> Male
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="gender" value="Female"> Female
+        </label>
+        <br><br>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+
+    <h3>Selected Value:</h3>
+    <p>
+        <?php
+        // Check if the form has been submitted
+        if (isset($_POST['submit'])) {
+            // Check if a radio button was actually selected
+            if (isset($_POST['gender'])) {
+                // Secure and display the selected value
+                $selected_gender = htmlspecialchars($_POST['gender']);
+                echo "You selected: <strong>" . $selected_gender . "</strong>";
+            } else {
+                echo "Please select an option.";
+            }
+        } else {
+            echo "None";
+        }
+        ?>
+    </p>
+
+</body>
+</html>

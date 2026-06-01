@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form method="post">
+ Name: <input type="text" name="name" required><br><br>
+ Email: <input type="email" name="email" required><br><br>
+
+ Gender:
+ <input type="radio" name="gender" value="Male" required> Male
+ <input type="radio" name="gender" value="Female" required> Female
+ <br><br>
+
+ Course:
+ <select name="course" required>
+   <option value="">--Select Course--</option>
+   <option value="BSIT">BSIT</option>
+   <option value="BSCS">BSCS</option>
+   <option value="BSIS">BSIS</option>
+   <option value="BSECE">BSECE</option>
+ </select>
+ <br><br>
+
+ Hobbies:<br>
+ <input type="checkbox" name="hobbies[]" value="Gaming"> Gaming<br>
+ <input type="checkbox" name="hobbies[]" value="Sports"> Sports<br>
+ <input type="checkbox" name="hobbies[]" value="Music"> Music<br><br>
+
+ Message:<br>
+ <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+
+ <input type="submit" name="register" value="Register">
+ <input type="reset" value="Reset">
+</form>
+
+<?php
+if (isset($_POST['register'])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $gender = $_POST["gender"] ?? "";
+    $course = $_POST["course"];
+    $message = $_POST["message"];
+    $hobbies = $_POST["hobbies"] ?? [];
+
+    if ($name == "" || $email == "" || $gender == "" || $course == "" || $message == "" || empty($hobbies)) {
+        echo "All fields are required!";
+    } else {
+        echo "<h3>Registration Successful</h3>";
+        echo "Name: " . $name . "<br>";
+        echo "Email: " . $email . "<br>";
+        echo "Gender: " . $gender . "<br>";
+        echo "Course: " . $course . "<br>";
+        echo "Hobbies: " . implode(", ", $hobbies) . "<br>";
+        echo "Message:<br>" . nl2br($message);
+    }
+}
+?>
+
+</body>
+</html>

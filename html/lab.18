@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Form using GET</h2>
+<form method="get">
+ Name: <input type="text" name="name"><br><br>
+ Email: <input type="email" name="email"><br><br>
+ <input type="submit" name="submit_get" value="Submit (GET)">
+</form>
+
+<h2>Form using POST</h2>
+<form method="post">
+ Name: <input type="text" name="name"><br><br>
+ Email: <input type="email" name="email"><br><br>
+ <input type="submit" name="submit_post" value="Submit (POST)">
+</form>
+
+<?php
+if (isset($_GET['submit_get'])) {
+    $name = $_GET["name"];
+    $email = $_GET["email"];
+    echo "<h3>GET Result</h3>";
+    echo "Name: " . $name . "<br>";
+    echo "Email: " . $email . "<br>";
+}
+
+if (isset($_POST['submit_post'])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    echo "<h3>POST Result</h3>";
+    echo "Name: " . $name . "<br>";
+    echo "Email: " . $email . "<br>";
+}
+?>
+
+</body>
+</html>

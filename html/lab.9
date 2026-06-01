@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post">
+ Name: <input type="text" name="name"><br><br>
+ Email: <input type="email" name="email"><br><br>
+ Message:<br>
+ <textarea name="message" rows="5" cols="40"></textarea><br><br>
+ <input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+
+    if ($name == "" || $email == "" || $message == "") {
+        echo "All fields are required!";
+    } else {
+        echo "Hello, " . $name . "<br>";
+        echo "Your email is: " . $email . "<br>";
+        echo "Your message: " . nl2br($message);
+    }
+}
+?>
+
+</body>
+</html>

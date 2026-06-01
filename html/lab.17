@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post">
+ Name: <input type="text" name="name" required><br><br>
+ Email: <input type="email" name="email" required><br><br>
+ Age: <input type="number" name="age" min="1" max="120" required><br><br>
+ <input type="submit" name="submit" value="Submit">
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $age = $_POST["age"];
+
+    echo "<h3>Result:</h3>";
+    echo "Name: " . $name . "<br>";
+    echo "Email: " . $email . "<br>";
+    echo "Age: " . $age;
+}
+?>
+
+</body>
+</html>
